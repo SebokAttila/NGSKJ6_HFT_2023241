@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGSKJ6_HFT_2023241", "NGSKJ6_HFT_2023241\NGSKJ6_HFT_2023241.csproj", "{BBE31DEA-4847-4C21-8881-D76527020C7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGSKJ6_HFT_2023241_Models", "NGSKJ6_HFT_2023241_Models\NGSKJ6_HFT_2023241_Models.csproj", "{180BF28A-116B-4F1F-8487-4EBDDA58309D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BBE31DEA-4847-4C21-8881-D76527020C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBE31DEA-4847-4C21-8881-D76527020C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBE31DEA-4847-4C21-8881-D76527020C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180BF28A-116B-4F1F-8487-4EBDDA58309D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180BF28A-116B-4F1F-8487-4EBDDA58309D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180BF28A-116B-4F1F-8487-4EBDDA58309D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180BF28A-116B-4F1F-8487-4EBDDA58309D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
