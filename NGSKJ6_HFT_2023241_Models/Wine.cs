@@ -16,6 +16,7 @@ namespace NGSKJ6_HFT_2023241_Models
         public string Name { get; set; }
         public string Type { get; set; }
         public int Vintage { get; set; }
+        [ForeignKey("Winery")]
         public int WineryId { get; set; }
         [NotMapped]
         public virtual Winery Winery { get; set; }
