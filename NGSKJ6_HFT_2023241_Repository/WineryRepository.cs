@@ -14,11 +14,16 @@ namespace NGSKJ6_HFT_2023241_Repository
         }
         public override Winery Read(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Wineries.FirstOrDefault(p => p.WineryId == id);
         }
         public override void Update(Winery entity)
         {
-            throw new NotImplementedException();
+            var old = Read(entity.WineryId);
+            foreach (var item in entity.GetType().GetProperties())
+            {
+                item.SetValue(old, item.GetValue(entity));
+            }
+            ctx.SaveChanges();
         }
     }
 }

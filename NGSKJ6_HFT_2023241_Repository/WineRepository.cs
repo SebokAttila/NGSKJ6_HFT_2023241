@@ -14,11 +14,16 @@ namespace NGSKJ6_HFT_2023241_Repository
         }
         public override Wine Read(int id)
         {
-            return ctx.
+            return ctx.Wines.FirstOrDefault(p => p.WineId == id);
         }
         public override void Update(Wine entity)
         {
-            throw new NotImplementedException();
+            var old = Read(entity.WineId);
+            foreach (var item in entity.GetType().GetProperties())
+            {
+                item.SetValue(old, item.GetValue(entity));
+            }
+            ctx.SaveChanges();
         }
     }
 }
