@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace NGSKJ6_HFT_2023241_Models
 {
+    public enum Types
+    {
+        Barrique,
+        Lager
+    }
     public class Barrell
     {
         [Key]
@@ -16,6 +21,7 @@ namespace NGSKJ6_HFT_2023241_Models
         public int Capacity { get; set; }
         public string Material { get; set; }
         public int NumberOfUses { get; set; }
+        public Types Type { get; set; }
         [ForeignKey("Wine")]
         public int WineId { get; set; }
         [NotMapped]
