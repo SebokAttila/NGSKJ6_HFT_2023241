@@ -22,6 +22,6 @@ namespace NGSKJ6_HFT_2023241_Models
         [NotMapped]
         public virtual Winery Winery { get; set; }
         [NotMapped]
-        public virtual ICollection<Barrell> Barells { get; set}
+        public virtual ICollection<Barrell> Barells { get; set; }
     }
 }

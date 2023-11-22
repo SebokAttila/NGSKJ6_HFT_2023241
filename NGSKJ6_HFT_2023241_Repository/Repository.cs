@@ -6,31 +6,29 @@ using System.Threading.Tasks;
 
 namespace NGSKJ6_HFT_2023241_Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
+        protected WineryDbContext ctx;
+        public Repository(WineryDbContext ctx)
+        {
+            this.ctx = ctx;
+        }
         public void Create(T entity)
         {
-            throw new NotImplementedException();
+            ctx.Set<T>().Add(entity);
+            ctx.SaveChanges();
         }
 
-        public void Delete(T entity)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            ctx.Set<T>().Remove(Read(id));
+            ctx.SaveChanges();
         }
-
-        public T Read(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IQueryable<T> ReadAll()
         {
-            throw new NotImplementedException();
+            return ctx.Set<T>();
         }
-
-        public void Update(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract T Read(int id);
+        public abstract void Update(T entity);       
     }
 }
