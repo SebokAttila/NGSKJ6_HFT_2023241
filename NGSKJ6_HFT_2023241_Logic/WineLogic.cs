@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace NGSKJ6_HFT_2023241_Logic
 {
-    public class WineLogic
+    public class WineLogic : IWineLogic
     {
         IRepository<Wine> repository;
 
