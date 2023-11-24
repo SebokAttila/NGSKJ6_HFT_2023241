@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NGSKJ6_HFT_2023241_Models\NGSKJ6_HFT_2023241_Models.csproj" />
+    <ProjectReference Include="..\NGSKJ6_HFT_2023241_Repository\NGSKJ6_HFT_2023241_Repository.csproj" />
+  </ItemGroup>
+
+</Project>
