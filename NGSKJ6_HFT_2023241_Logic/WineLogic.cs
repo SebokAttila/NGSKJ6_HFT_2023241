@@ -1,4 +1,5 @@
-﻿using NGSKJ6_HFT_2023241_Models;
+﻿using NGSKJ6_HFT_2023241_Logic.Interfaces;
+using NGSKJ6_HFT_2023241_Models;
 using NGSKJ6_HFT_2023241_Repository;
 using System;
 using System.Linq;
