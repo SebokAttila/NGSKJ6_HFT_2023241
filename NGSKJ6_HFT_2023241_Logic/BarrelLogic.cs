@@ -12,7 +12,7 @@ namespace NGSKJ6_HFT_2023241_Logic
     {
         IRepository<Barrell> repository;
 
-        public BarrelLogic(IRepository<Wine> repository)
+        public BarrelLogic(IRepository<Barrell> repository)
         {
             this.repository = repository;
         }
