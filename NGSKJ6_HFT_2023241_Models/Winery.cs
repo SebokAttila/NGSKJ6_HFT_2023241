@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace NGSKJ6_HFT_2023241_Models
 {
@@ -13,6 +14,7 @@ namespace NGSKJ6_HFT_2023241_Models
         public string Name { get; set; }
         public string Location { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Wine> Wines { get; set; }
 
     }

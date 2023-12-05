@@ -8,4 +8,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NGSKJ6_HFT_2023241_Logic\NGSKJ6_HFT_2023241_Logic.csproj" />
+    <ProjectReference Include="..\NGSKJ6_HFT_2023241_Models\NGSKJ6_HFT_2023241_Models.csproj" />
+    <ProjectReference Include="..\NGSKJ6_HFT_2023241_Repository\NGSKJ6_HFT_2023241_Repository.csproj" />
+  </ItemGroup>
+
 </Project>

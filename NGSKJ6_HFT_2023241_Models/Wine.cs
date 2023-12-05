@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace NGSKJ6_HFT_2023241_Models
@@ -20,8 +21,10 @@ namespace NGSKJ6_HFT_2023241_Models
         [ForeignKey("Winery")]
         public int WineryId { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual Winery Winery { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Barrell> Barells { get; set; }
     }
 }
