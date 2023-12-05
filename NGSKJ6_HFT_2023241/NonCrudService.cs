@@ -32,7 +32,7 @@ namespace NGSKJ6_HFT_2023241_Client
         {
             Console.WriteLine("Material:");
             string material = Console.ReadLine();
-            var barrels = restService.Get<Barrell>($"Stats/ListBarrelsByMaterial?material={material}");
+            var barrels = restService.Get<Barrell>($"Stats/BarrelsByMaterial?material={material}");
             foreach (var item in barrels)
             {
                 Console.WriteLine();
