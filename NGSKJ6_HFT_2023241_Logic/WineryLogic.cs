@@ -47,5 +47,45 @@ namespace NGSKJ6_HFT_2023241_Logic
         {
             this.repository.Update(wine);
         }
+        public IQueryable<Wine> ListByVintage(int vintage)
+        {
+            var vintageWines = from w in repository.ReadAll()
+                               from wine in w.Wines
+                               where wine.Vintage == vintage
+                               select wine; return vintageWines;
+        }
+        public IQueryable<Barrell> BarrellsByMaterial(string material )
+        {
+            var barrelList = from w in repository.ReadAll()
+                             from wine in w.Wines
+                             from b in wine.Barells
+                             where b.Material == material
+                             select b; return barrelList;
+        }
+        public Wine BiggestBatch(string name)
+        {
+            var biggestbatch = from w in repository.ReadAll()
+                               from wine in w.Wines
+                               where w.Name == name
+                               orderby wine.Amount descending
+                               select wine;
+            return biggestbatch.First();
+        }
+        public IQueryable<Wine> WinesByWinery(string winery)
+        {
+            var wines = from w in repository.ReadAll()
+                        where w.Name == winery
+                        from wine in w.Wines
+                        select wine; return wines;
+        }
+        public Barrell BiggestBarrelInWinery(string winery)
+        {
+            var biggest = from w in repository.ReadAll()
+                          from wine in w.Wines
+                          from b in wine.Barells
+                          where w.Name == winery
+                          orderby b.Capacity descending
+                          select b; return biggest.First();                           
+        }
     }
 }
