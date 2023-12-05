@@ -1,83 +1,52 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NGSKJ6_HFT_2023241_Logic;
+using NGSKJ6_HFT_2023241_Logic.Interfaces;
+using NGSKJ6_HFT_2023241_Models;
+using System.Collections.Generic;
 
 namespace NGSKJ6_HFT_2023341_Endpoint.Controllers
 {
-    public class WineController : Controller
+    [Route("[controller]")]
+    [ApiController]
+    public class WineController : ControllerBase
     {
-        // GET: Wine
-        public ActionResult Index()
+        IWineLogic logic;
+
+        public WineController(WineLogic logic)
         {
-            return View();
+            this.logic = logic;
         }
 
-        // GET: Wine/Details/5
-        public ActionResult Details(int id)
+
+        [HttpGet]
+        public IEnumerable<Wine> ReadAll()
         {
-            return View();
+            return this.logic.ReadAll();
         }
 
-        // GET: Wine/Create
-        public ActionResult Create()
+        [HttpGet("{id}")]
+        public Wine Read(int id)
         {
-            return View();
+            return this.logic.Read(id);
         }
 
-        // POST: Wine/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public void Create([FromBody] Wine value)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            this.logic.Create(value);
         }
 
-        // GET: Wine/Edit/5
-        public ActionResult Edit(int id)
+        [HttpPut]
+        public void Put([FromBody] Wine value)
         {
-            return View();
+            this.logic.Update(value);
         }
 
-        // POST: Wine/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Wine/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Wine/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            this.logic.Delete(id);
         }
     }
 }

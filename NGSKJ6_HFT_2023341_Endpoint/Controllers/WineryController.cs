@@ -9,87 +9,44 @@ namespace NGSKJ6_HFT_2023341_Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class WineryController : Controller
+    public class WineryController : ControllerBase
     {
         IWineryLogic logic;
+
         public WineryController(IWineryLogic logic)
         {
             this.logic = logic;
         }
-        // GET: Winery
 
-        public ActionResult Index()
+
+        [HttpGet]
+        public IEnumerable<Winery> ReadAll()
         {
-            return View();
+            return this.logic.ReadAll();
         }
 
-        // GET: Winery/Details/5
-        public ActionResult Details(int id)
+        [HttpGet("{id}")]
+        public Winery Read(int id)
         {
-            return View();
+            return this.logic.Read(id);
         }
 
-        // GET: Winery/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Winery/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public void Create([FromBody] Winery value)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            this.logic.Create(value);
         }
 
-        // GET: Winery/Edit/5
-        public ActionResult Edit(int id)
+        [HttpPut]
+        public void Put([FromBody] Winery value)
         {
-            return View();
+            this.logic.Update(value);
         }
 
-        // POST: Winery/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Winery/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Winery/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            this.logic.Delete(id);
         }
     }
 }

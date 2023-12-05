@@ -1,83 +1,51 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NGSKJ6_HFT_2023241_Logic.Interfaces;
+using NGSKJ6_HFT_2023241_Models;
+using System.Collections.Generic;
 
 namespace NGSKJ6_HFT_2023341_Endpoint.Controllers
 {
-    public class BarrellController : Controller
+    [Route("[controller]")]
+    [ApiController]
+    public class BarrellController : ControllerBase
     {
-        // GET: Barrell
-        public ActionResult Index()
+        IBarrelLogic logic;
+
+        public BarrellController(IBarrelLogic logic)
         {
-            return View();
+            this.logic = logic;
         }
 
-        // GET: Barrell/Details/5
-        public ActionResult Details(int id)
+
+        [HttpGet]
+        public IEnumerable<Barrell> ReadAll()
         {
-            return View();
+            return this.logic.ReadAll();
         }
 
-        // GET: Barrell/Create
-        public ActionResult Create()
+        [HttpGet("{id}")]
+        public Barrell Read(int id)
         {
-            return View();
+            return this.logic.Read(id);
         }
 
-        // POST: Barrell/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public void Create([FromBody] Barrell value)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            this.logic.Create(value);
         }
 
-        // GET: Barrell/Edit/5
-        public ActionResult Edit(int id)
+        [HttpPut]
+        public void Put([FromBody] Barrell value)
         {
-            return View();
+            this.logic.Update(value);
         }
 
-        // POST: Barrell/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Barrell/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Barrell/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            this.logic.Delete(id);
         }
     }
 }
