@@ -12,37 +12,30 @@ namespace NGSKJ6_HFT_2023341_Endpoint.Controllers
     public class WineController : ControllerBase
     {
         IWineLogic logic;
-
-        public WineController(WineLogic logic)
+        public WineController(IWineLogic logic)
         {
             this.logic = logic;
         }
-
-
         [HttpGet]
         public IEnumerable<Wine> ReadAll()
         {
             return this.logic.ReadAll();
         }
-
         [HttpGet("{id}")]
         public Wine Read(int id)
         {
             return this.logic.Read(id);
         }
-
         [HttpPost]
         public void Create([FromBody] Wine value)
         {
             this.logic.Create(value);
         }
-
         [HttpPut]
         public void Put([FromBody] Wine value)
         {
             this.logic.Update(value);
         }
-
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

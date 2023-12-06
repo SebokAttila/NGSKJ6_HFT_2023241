@@ -16,6 +16,10 @@ namespace NGSKJ6_HFT_2023241_Models
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Wine> Wines { get; set; }
+        public Winery()
+        {
+            Wines = new HashSet<Wine>();
+        }
 
     }
 }

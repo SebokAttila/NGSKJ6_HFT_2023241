@@ -10,9 +10,9 @@ namespace NGSKJ6_HFT_2023241_Repository
 {
     public class WineryDbContext :DbContext
     {
-        public DbSet<Wine> Wines { get; set; }
-        public DbSet<Winery> Wineries { get; set; }
-        public DbSet<Barrell> Barrels { get; set; }
+        public virtual DbSet<Wine> Wines { get; set; }
+        public virtual DbSet<Winery> Wineries { get; set; }
+        public virtual DbSet<Barrell> Barrels { get; set; }
 
         public WineryDbContext()
         {
@@ -23,8 +23,6 @@ namespace NGSKJ6_HFT_2023241_Repository
             optionsBuilder
                 .UseLazyLoadingProxies()
                 .UseInMemoryDatabase("Wineries");
-
-
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -18,7 +18,7 @@ namespace NGSKJ6_HFT_2023241_Models
         public string Type { get; set; }
         public int Vintage { get; set; }
         public int Amount { get; set; }
-        [ForeignKey("Winery")]
+        [ForeignKey(nameof(Winery))]
         public int WineryId { get; set; }
         [NotMapped]
         [JsonIgnore]
@@ -26,5 +26,10 @@ namespace NGSKJ6_HFT_2023241_Models
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Barrell> Barells { get; set; }
+
+        public Wine()
+        {
+            this.Barells = new HashSet<Barrell>();
+        }
     }
 }
