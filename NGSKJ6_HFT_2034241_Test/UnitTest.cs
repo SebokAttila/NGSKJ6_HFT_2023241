@@ -166,8 +166,7 @@ namespace NGSKJ6_HFT_2034241_Test
         {
             Winery winery = new Winery() { WineryId = 1, Name = "Gere", Location = "Villány" };
             wineryLogic.Create(winery);
-            mockWineryRepository.Verify(w => w.Create(winery), Times.Once);
-            //winery = new Winery() { WineryId = 1, Name = "", Location = "Villány" };
+            mockWineryRepository.Verify(w => w.Create(winery), Times.Once);           
             Assert.IsNotNull(winery);
         }
         [Test]
