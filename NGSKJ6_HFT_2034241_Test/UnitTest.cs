@@ -115,13 +115,14 @@ namespace NGSKJ6_HFT_2034241_Test
             Assert.IsTrue(result.All(b => b.Material == materialToTest));
         }
         [Test]
-        public void TestBiggestBatch_ReturnsBiggestBatchForWinery()
+        public void TestBarrellsByMaterial_ReturnsCorrectMaterialBarrels2()
         {
-            string wineryNameToTest = "Borház1";
+            string materialToTest = "Birch";
 
-            var result = wineryLogic.BiggestBatch(wineryNameToTest);
+            var result = wineryLogic.BarrellsByMaterial(materialToTest);
 
             Assert.IsNotNull(result);
+            Assert.IsTrue(result.All(b => b.Material == materialToTest));
         }
         [Test]
         public void TestWinesByWinery_ReturnsWinesForWinery()

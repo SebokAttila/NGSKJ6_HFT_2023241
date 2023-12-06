@@ -17,7 +17,7 @@ namespace NGSKJ6_HFT_2023241_Logic
 
         public void Create(Wine item)
         {
-            if (item.Name.Length < 0 || item.Name.Length > 99) throw new FormatException();
+            
 
             if (item.Amount <= 0)
             {

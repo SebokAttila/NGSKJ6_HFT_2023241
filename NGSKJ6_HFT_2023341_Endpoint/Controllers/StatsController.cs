@@ -31,7 +31,7 @@ namespace NGSKJ6_HFT_2023341_Endpoint.Controllers
         [HttpGet]
         public Wine BiggestBatch([FromQuery] string name)
         {
-            return logic.BiggestBatch(name);
+            return (Wine)logic.BiggestBatch(name);
         }
 
         [HttpGet]
