@@ -62,14 +62,14 @@ namespace NGSKJ6_HFT_2023241_Logic
                              where b.Material == material
                              select b; return barrelList;
         }
-        public IQueryable<Wine> BiggestBatch(string name)
+        public Wine BiggestBatch(string name)
         {
             var biggestbatch = from w in repository.ReadAll()
                                from wine in w.Wines
                                where w.Name == name
                                orderby wine.Amount descending
                                select wine;
-            return (IQueryable<Wine>)biggestbatch.First();
+            return biggestbatch.First();
         }
         public IQueryable<Wine> WinesByWinery(string winery)
         {

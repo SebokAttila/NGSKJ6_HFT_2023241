@@ -13,7 +13,7 @@ namespace NGSKJ6_HFT_2023241_Logic.Interfaces
         void Update(Winery wine);
         public IQueryable<Wine> ListByVintage(int vintage);
         public IQueryable<Barrell> BarrellsByMaterial(string material);
-        public IQueryable<Wine> BiggestBatch(string name);
+        public Wine BiggestBatch(string name);
         public IQueryable<Wine> WinesByWinery(string winery);
         public Barrell BiggestBarrelInWinery(string winery);
 

@@ -24,7 +24,7 @@ namespace NGSKJ6_HFT_2023241_Client
             var items = restService.Get<Wine>($"Stats/ListByVintage?vintage={vintage}");
             foreach ( var item in items )
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.Name);
             }
             Console.ReadLine();
         }
@@ -35,7 +35,7 @@ namespace NGSKJ6_HFT_2023241_Client
             var barrels = restService.Get<Barrell>($"Stats/BarrelsByMaterial?material={material}");
             foreach (var item in barrels)
             {
-                Console.WriteLine();
+                Console.WriteLine(item.BarrelId +"\t" + item.Capacity);
             }
             Console.ReadLine();
         }
@@ -43,8 +43,8 @@ namespace NGSKJ6_HFT_2023241_Client
         {
             Console.WriteLine("Winery:");
             string winery = Console.ReadLine();
-            var biggest = restService.Get<Wine>($"Stats/BiggestBatch?name={winery}");
-            Console.WriteLine(biggest);
+            var biggest = restService.GetSingle<Wine>($"Stats/BiggestBatch?name={winery}");
+            Console.WriteLine(biggest.Name);
             Console.ReadLine();
         }
         public void WinesByWinery()
@@ -54,7 +54,7 @@ namespace NGSKJ6_HFT_2023241_Client
             var wines = restService.Get<Wine>($"Stats/WinesByWinery?winery={winery}");
             foreach (var item in wines)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.Name);
             }
             Console.ReadLine();
         }
@@ -62,8 +62,8 @@ namespace NGSKJ6_HFT_2023241_Client
         {
             Console.WriteLine("Winery");
             string winery = Console.ReadLine();
-            var barrel = restService.Get<Barrell>($"Stats/BiggestBarrelInWinery?winery={winery}");
-            Console.WriteLine(barrel);
+            var barrel = restService.GetSingle<Barrell>($"Stats/BiggestBarrelInWinery?winery={winery}");
+            Console.WriteLine(barrel.BarrelId);
             Console.ReadLine();
         }
     }
