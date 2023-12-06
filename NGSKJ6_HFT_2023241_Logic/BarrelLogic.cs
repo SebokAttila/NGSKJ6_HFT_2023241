@@ -20,7 +20,7 @@ namespace NGSKJ6_HFT_2023241_Logic
 
         public void Create(Barrell item)
         {
-            if(item.Type != Types.Barrique || item.Type != Types.Lager) { throw new Exception(); }
+            if(item.Type != Types.Barrique && item.Type != Types.Lager) { throw new Exception(); }
             if (item.Capacity <= 0 || (item.Type == Types.Barrique && item.Capacity > 250)) throw new FormatException();
 
             if (item.Material == null || item.Material == "")
